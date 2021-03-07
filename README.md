@@ -11,6 +11,6 @@ Future Scopes
 
     Currently the menu items on the landing page are not clickable. Have to implement "quick-search" - search based on item clicked.
     
-    Have to optimize the choice of api for fetching recipes - currently only recipe names are being fetched in the api.
+    Currently only recipe-names and images are being fetched in the api chosen. Have to optimize the choice of api for fetching complete recipes. 
   
   
