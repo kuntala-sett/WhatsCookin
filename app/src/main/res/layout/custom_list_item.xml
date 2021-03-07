@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    app:cardCornerRadius="10dp"
+    android:layout_margin="5dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="5dp"
+        android:orientation="horizontal"
+        android:background="@drawable/rounded_rect_background"
+        android:padding="0.1dp">
+
+        <ImageView
+            android:id="@+id/imgView_recipe_img"
+            android:layout_width="65dp"
+            android:layout_height="65dp"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:gravity="center">
+
+            <TextView
+                android:id="@+id/tv_recipe_name"
+                android:layout_width="wrap_content"
+                android:layout_height="40dp"
+                android:layout_gravity="start"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginRight="10dp"
+                android:fontFamily="@font/shippori_mincho_semibold"
+                android:gravity="center_vertical"
+                android:text="Recipe name"
+                android:textColor="@color/rose"
+                android:textSize="14dp"
+                android:textStyle="bold|normal" />
+
+        <TextView
+            android:id="@+id/tv_recipe_link"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="10dp"
+            android:layout_marginTop="5dp"
+            android:fontFamily="@font/dosis_regular"
+            android:text="View"
+            android:textColor="@color/new_black"
+            android:textSize="12dp"
+            android:textStyle="normal"
+            android:layout_gravity="bottom|end"
+            android:autoLink="web"
+            android:linksClickable="true"/>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</androidx.cardview.widget.CardView>

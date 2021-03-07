@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">What\'s Cookin</string>
+    <string name="api_key">43f8e12bf5474ff4bc5a4dbfdabaa127</string>
+    <string name="search_view_hint">Search recipes by ingredients, cuisines, diets...</string>
+    <string name="result_found">results found! Let\'s get cookin\'!</string>
+    <string name="not_found">We didn\'t find any great matches! Let\'s try with another word?</string>
+    <string name="uh_oh">Uh-oh!</string>
+    <string name="error">"Something went wrong... Please try again!"</string>
+    <string name="oops">Oops!</string>
+    <string name="ok">OK</string>
+</resources>
