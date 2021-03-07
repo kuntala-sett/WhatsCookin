@@ -5,6 +5,8 @@ import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.res.ResourcesCompat;
 import androidx.core.view.MenuItemCompat;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.app.ProgressDialog;
 import android.content.DialogInterface;
@@ -18,6 +20,8 @@ import android.widget.EditText;
 import android.widget.SearchView;
 import android.widget.Toast;
 
+import java.util.ArrayList;
+
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -25,6 +29,16 @@ import retrofit2.Response;
 public class MainActivity extends AppCompatActivity {
 
     private ProgressDialog progressDialog;
+    private RecyclerView mRecyclerView;
+    private HomepageAdapter mAdapter;
+    private ArrayList<HomepageItems> mItemList;
+    //private int[] imgDrawableList1 = new int[]{R.drawable.placeholder_food, R.drawable.placeholder_food, R.drawable.placeholder_food, R.drawable.placeholder_food,R.drawable.placeholder_food, R.drawable.placeholder_food, R.drawable.placeholder_food};
+    private String[] nameList1 = new String[]{"Chicken","Fish","Eggs","Pineapple","Pasta","Yoghurt","Pumpkin"};
+   // private int[] imgDrawableList2 = new int[]{R.drawable.apple, R.drawable.mango,R.drawable.straw, R.drawable.pineapple,R.drawable.orange,R.drawable.blue,R.drawable.water};
+    private String[] nameList2 = new String[]{"Chinese","Italian" ,"Mexican","Indian","Japanese","Mediterranean","Desserts"};
+    //private int[] imgDrawableList3 = new int[]{R.drawable.apple, R.drawable.mango,R.drawable.straw, R.drawable.pineapple,R.drawable.orange,R.drawable.blue,R.drawable.water};
+    private String[] nameList3 = new String[]{"Keto","Paleo" ,"Vegan","Gluten Free","Salad","Rice","Shakes"};
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,7 +48,38 @@ public class MainActivity extends AppCompatActivity {
         //actionBar.setTitle("");
         actionBar.setDisplayShowTitleEnabled(false);
         actionBar.setDisplayShowHomeEnabled(false);
+        setupViews();
     }
+
+    private void setupViews(){
+        mRecyclerView = (RecyclerView) findViewById(R.id.recyc_view_1);
+        mItemList = getModelList(nameList1);
+        setupRecyclerViews();
+        mRecyclerView = (RecyclerView) findViewById(R.id.recyc_view_2);
+        mItemList = getModelList(nameList2);
+        setupRecyclerViews();
+        mRecyclerView = (RecyclerView) findViewById(R.id.recyc_view_3);
+        mItemList = getModelList(nameList3);
+        setupRecyclerViews();
+    }
+    private void setupRecyclerViews(){
+        mAdapter = new HomepageAdapter(mItemList, this);
+        mRecyclerView.setAdapter(mAdapter);
+        //for horizontal recyclerView
+        mRecyclerView.setLayoutManager(new LinearLayoutManager(getApplicationContext(), LinearLayoutManager.HORIZONTAL, false));
+    }
+    private ArrayList<HomepageItems> getModelList(String[] currentList) {
+        ArrayList<HomepageItems> arrList = new ArrayList<HomepageItems>();
+
+        for(String s : currentList){
+            HomepageItems obj = new HomepageItems();
+            obj.setName(s);
+            obj.setImgDrawable(R.drawable.placeholder_food);
+            arrList.add(obj);
+        }
+        return arrList;
+    }
+
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -118,4 +163,5 @@ public class MainActivity extends AppCompatActivity {
         });
         return true;
     }
+
 }
